@@ -72,15 +72,15 @@ Cylon
 //    });
 //    
     function createalarmtime(today,hours,minutes){
-    return new Date(today.getFullYear(),today.getMonth(), today.getDay(), hours,minutes,0,0);    
+    return new Date(today.getFullYear(),today.getMonth(), today.getDate(), hours,minutes,0,0);    
     }
    
     setInterval(function() 
     {
 //        writeToScreen(my.screen,timer());
          var rightnow = new Date();
-        var alarmtime = createalarmtime(rightnow,6,27);
-        if (rightnow.getMinutes() >= alarmtime.getMinutes())
+        var alarmtime = createalarmtime(rightnow,6,33);
+        if (rightnow.valueOf() >= alarmtime.valueOf())
         {
             my.led.turnOn();
         }
@@ -88,9 +88,9 @@ Cylon
             my.led.turnOff();
         }
          my.screen.setCursor(0,0);
-         my.screen.write(rightnow.getMinutes().toString());
+         my.screen.write(rightnow.valueOf().toString());
          my.screen.setCursor(1,0);
-        my.screen.write(alarmtime.getMinutes().toString());
+        my.screen.write(alarmtime.valueOf().toString());
         
         
     
