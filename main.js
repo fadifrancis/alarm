@@ -79,8 +79,8 @@ Cylon
     {
 //        writeToScreen(my.screen,timer());
          var rightnow = new Date();
-        var alarmtime = createalarmtime(rightnow,6,12);
-        if (rightnow > alarmtime)
+        var alarmtime = createalarmtime(rightnow,6,27);
+        if (rightnow.getMinutes() >= alarmtime.getMinutes())
         {
             my.led.turnOn();
         }
@@ -88,9 +88,10 @@ Cylon
             my.led.turnOff();
         }
          my.screen.setCursor(0,0);
-         my.screen.write(rightnow.toTimeString());
+         my.screen.write(rightnow.getMinutes().toString());
          my.screen.setCursor(1,0);
-        my.screen.write(alarmtime.toTimeString());
+        my.screen.write(alarmtime.getMinutes().toString());
+        
         
     
 
